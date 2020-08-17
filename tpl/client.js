@@ -112,7 +112,7 @@ var parser = {
 			})
 			// rule chain
 			.replace(/-j (ACCEPT|DROP)($| )/g, '-j <span class="ipt-$1">$1</span>$2')
-			.replace(/-j ([A-Z\_0-9]+)/g, function(str, name) {
+			.replace(/-j ([A-Z\_0-9\\-]+)/g, function(str, name) {
 				var lname = name.toLowerCase();
 				if(parser.FIN_RULES[name]) {
 					return "-j " + name;
